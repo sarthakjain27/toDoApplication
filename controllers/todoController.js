@@ -6,7 +6,7 @@ var mongoose=require('mongoose');
 
 
 //Connect to the database
-mongoose.connect('mongodb+srv://sarthak:<password>@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://sarthak:sarthakjain@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
 
 var todoSchema=new mongoose.Schema({
   item: String

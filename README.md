@@ -24,14 +24,16 @@ If using AWS DocumentDB which has inbuilt MongoDB Support.
 
 1) Follow tutorial https://www.aws.training/Details/eLearning?id=36852 to learn how to create a documentDB cluster which makes use of VPC, 1 public and 2 private subnets. Public subnet is used to connect to the db located in private subnet as we cannot directly access private subnet from outside vpc. 
 
-2) mongoose.connect(database.url, {
+2) mongoose.connect('mongodb://sarthak:sarthakjain@docdb-2019-09-24-02-39-10.cluster-cy3p0tyba1ct.us-east-1.docdb.amazonaws.com:27017/test',{
+    useUnifiedTopology:true,
     useNewUrlParser: true,
     ssl: true,
     sslValidate: false,
     sslCA: fs.readFileSync('./rds-combined-ca-bundle.pem')})
 .then(() => console.log('Connection to DB successful'))
-.catch((err) => console.error(err,'Error')); 
+.catch((err) => console.error(err,'Error'));
 
 Use this command to connect to your above created documentDB using node js application running on EC2 instance on public subnet of your vpc. Make sure to place your rds-combined-ca-bundle.pem which is given if TLS is enabled for db in the same folder with other node js files. 
 
-3. copy the database.url from the connection string in documentDB. 
+3. copy the database.url from the connection string in documentDB till the query parameters and provide a db name after the port. In above url, the name is test. 
+

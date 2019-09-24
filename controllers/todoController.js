@@ -9,11 +9,11 @@ var fs=require('fs');
 //Connect to the database
 
 //Using MongoDB on Atlas
-mongoose.connect('mongodb+srv://sarthak:sarthakjain@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb+srv://sarthak:sarthakjain@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
 
 
 //Using DocumentDB which has compatibility for mongoDB
-mongoose.connect('mongodb://sarthak:sarthakjain@docdb-2019-09-24-02-39-10.cluster-cy3p0tyba1ct.us-east-1.docdb.amazonaws.com:27017',{
+mongoose.connect('mongodb://sarthak:sarthakjain@docdb-2019-09-24-02-39-10.cluster-cy3p0tyba1ct.us-east-1.docdb.amazonaws.com:27017/test',{
     useUnifiedTopology:true,
     useNewUrlParser: true,
     ssl: true,

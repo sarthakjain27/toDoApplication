@@ -6,7 +6,20 @@ var mongoose=require('mongoose');
 
 
 //Connect to the database
-mongoose.connect('mongodb+srv://sarthak:sarthakjain@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+
+//Using MongoDB on Atlas
+//mongoose.connect('mongodb+srv://sarthak:sarthakjain@cluster0-0kdbg.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+
+
+//Using DocumentDB which has compatibility for mongoDB
+mongoose.connect('mongodb://sarthak:sarthakjain@docdb-2019-09-24-02-39-10.cluster-cy3p0tyba1ct.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0', {
+    useNewUrlParser: true,
+    ssl: true,
+    sslValidate: false,
+    sslCA: fs.readFileSync('./rds-combined-ca-bundle.pem')})
+.then(() => console.log('Connection to DB successful'))
+.catch((err) => console.error(err,'Error'));
+
 
 var todoSchema=new mongoose.Schema({
   item: String
